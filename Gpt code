@@ -1,0 +1,52 @@
+#include <SPI.h>
+#include <MFRC522.h>
+
+#define RST_PIN 9    // Configurable, connected to RST pin of RC522
+#define SS_PIN 10    // Configurable, connected to SDA (SS) pin of RC522
+
+MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance
+char UID_Result[20];             // Buffer to store UID as a string
+bool readsuccess = false;        // Flag for successful UID read
+
+//________________________________________________________________________________
+// SETUP FUNCTION
+void setup() {
+  Serial.begin(9600); // Initialize serial communication
+  while (!Serial);    // Wait for the Serial to initialize (if required)
+  
+  SPI.begin();         // Initialize SPI bus
+  mfrc522.PCD_Init();  // Initialize RFID module
+  Serial.println("Place your RFID card/tag near the reader...");
+}
+
+//________________________________________________________________________________
+// GET UID FUNCTION
+bool getUID() {
+  // Check if an RFID card/tag is present
+  if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial()) {
+    return false; // No card/tag or unable to read
+  }
+  
+  // Convert UID bytes to a string
+  for (byte i = 0; i < mfrc522.uid.size; i++) {
+    sprintf(&UID_Result[i * 2], "%02X", mfrc522.uid.uidByte[i]); // Convert byte to HEX
+  }
+  UID_Result[mfrc522.uid.size * 2] = '\0'; // Null-terminate the string
+  
+  mfrc522.PICC_HaltA(); // Halt the card to allow for a new read
+  return true;
+}
+
+//________________________________________________________________________________
+// LOOP FUNCTION
+void loop() {
+  readsuccess = getUID();
+
+  if (readsuccess) {
+    Serial.println();
+    Serial.print("UID: ");
+    Serial.println(UID_Result);
+    delay(500); // Delay to prevent repeated reads
+  }
+  delay(10); // General small delay
+}
