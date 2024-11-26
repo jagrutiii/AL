@@ -11,11 +11,11 @@ sheet "Attendance"
 Name | UID | Date | Time In | Time Out
 
 Google Apps Script Project Name : ESP32_RFID_Google_Spreadsheet_Attendance_System_Apps_Script
-Web app URL                     :https://script.google.com/macros/s/AKfycbzQtqiMQiU4MK_UnGJ0i1ps3HIZP6d3bZi61HHQWKkVT7w8rB8q_R1GKp7cddRitySu3Q/exec 
+Web app URL                     :https://script.google.com/macros/s/AKfycbza-7dTqliEVcNBNjLYStcpfmp4-NlmRNxp7Rkg6r2pjVDkby3ShH7MFqBWaXxhlGOj7A/exec
 
-Web app URL Test (Registration) :https://script.google.com/macros/s/AKfycbzQtqiMQiU4MK_UnGJ0i1ps3HIZP6d3bZi61HHQWKkVT7w8rB8q_R1GKp7cddRitySu3Q/exec?sts=reg&uid=A01
+Web app URL Test (Registration) :https://script.google.com/macros/s/AKfycbza-7dTqliEVcNBNjLYStcpfmp4-NlmRNxp7Rkg6r2pjVDkby3ShH7MFqBWaXxhlGOj7A/exec?sts=reg&uid=A01
 
-Web app URL Test (Attendance)   :https://script.google.com/macros/s/AKfycbzQtqiMQiU4MK_UnGJ0i1ps3HIZP6d3bZi61HHQWKkVT7w8rB8q_R1GKp7cddRitySu3Q/exec?sts=atc&uid=A01
+Web app URL Test (Attendance)   :https://script.google.com/macros/s/AKfycbza-7dTqliEVcNBNjLYStcpfmp4-NlmRNxp7Rkg6r2pjVDkby3ShH7MFqBWaXxhlGOj7A/exec/exec?sts=atc&uid=A01
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
